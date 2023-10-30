@@ -1,8 +1,10 @@
 This is a diagram representing a web server infrastructure:
 
+https://github.com/Shane35300/holbertonschool-system_engineering-devops/blob/main/vierge%20diagram.drawio
 
-1- When the customer write www.foobar.com in the web browser, the computer needs to know the IP adress associated to this domain name(www.foobar.com).
-So the client computer send a request to the DNS server provided by the operator(FAI). The DNS server receives the request a search in its data base the IP adress associated to the domain name.
+1- When the customer write www.foobar.com in the web browser, the computer needs to know the IP adress associated coresponding to this domain name(www.foobar.com).
+www.foobar.com is a A record(Address Record), that is a type of DNS resource record used to map a domain name to an IPv4 (Internet Protocol version 4) address. In simpler terms, it associates a domain name (such as www.example.com) with the numerical IP address (e.g., 192.168.1.1) of the server where the associated website or service is hosted.
+So, the client computer send a request to the DNS server provided by the operator(ISP). The DNS server receives the request a search in its data base the IP adress associated to the domain name.
 
 2- Once it is founded, it retrieves it to the customer's computer.
 
@@ -17,6 +19,15 @@ So the client computer send a request to the DNS server provided by the operator
 6- The response is now pure HTML code, understandable by a browser. The HTTP server can, therefore, return the response to the client.
 
 
+Data center:
+Web servers and application servers are typically located in data centers. Data centers are specialized facilities designed to host servers, computer hardware, storage devices, network equipment, and other infrastructure required to support large-scale computing operations. Data centers provide a controlled, secure, and energy-efficient environment to ensure the availability and reliability of online services.
+A server runs an operating system, just like a regular computer. An operating system (OS) is essential for managing and controlling the hardware and software components of a server. The choice of operating system can vary depending on the specific requirements and use case of the server.
+
+Physical and virtual server:
+A server can be both physical and virtual through virtualization, which allows for the creation of multiple virtual machines on a single physical server. This approach offers significant advantages in terms of efficiency, isolation, flexibility, and cost savings in managing IT resources.
+
+The communication of the servers:
+Communication between a server and other devices or systems on a network is typically done using the TCP/IP (Transmission Control Protocol/Internet Protocol) suite. TCP/IP is the foundational set of protocols that govern communication on the internet and most local area networks. It provides a standardized way for data to be transmitted and received between devices.
 
 Web server:
 The web server (e.g., Apache) is responsible for handling incoming HTTP requests. It processes all requests, whether they request static or dynamic resources. However, an HTTP server can only respond to requests for static resources. It can only serve existing HTML pages, images, and so on.
