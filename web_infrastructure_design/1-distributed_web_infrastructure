@@ -1,5 +1,8 @@
 This is a diagram representing a three server web infrastructure that hosts the website:
 
+https://github.com/Shane35300/holbertonschool-system_engineering-devops/blob/3bbe8f41e7fc2083586e732092652a7edc869d35/web_infrastructure_design/diagram2.png
+
+
 
 Here, the load balanced is configured to have an active-passive setup. When you have a single load balancer, the priority is typically to ensure that the service remains available in the event of a failure of that single load balancer. An Active-Passive configuration provides a certain level of redundancy and minimizes downtime in the event of a failure.
 
