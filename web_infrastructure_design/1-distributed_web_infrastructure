@@ -1,0 +1,23 @@
+This is a diagram representing a three server web infrastructure that hosts the website:
+
+
+Here, the load balanced is configured to have an active-passive setup. When you have a single load balancer, the priority is typically to ensure that the service remains available in the event of a failure of that single load balancer. An Active-Passive configuration provides a certain level of redundancy and minimizes downtime in the event of a failure.
+
+Distribution algorithm:
+The Load Balancer has different algorithms for how it divides up the workload, such as:
+
+Round Robin (most common) — Requests are distributed across the group of servers sequentially. Request 1 is directed to server 1, request 2 to server 2, and so forth.
+Least Connections — Before redirecting a request to a server, the Load Balancer computes which server has the least connections, and then sends the request to there.
+IP Hash — The IP address of the client is used to determine which server the request will be directed to. For example, all IP addresses from 100.100.100.100–400.400.400.400 will be sent to server 3. (IP Hash load balancing uses an algorithm that takes the source and destination IP address of the client and server to generate a unique hash key. This key is used to allocate the client to a particular server. They are assigned individually as they connect to the server and once assigned a certain server, the Client will always connect to that particular server)
+
+MySQL master-replica cluste:
+In this configuration, replication is used to maintain data synchronization. Specifically, a MySQL database (the master) sends copies of its data to other MySQL databases (the replicas) in such a way that they remain up-to-date and identical to the master's data. This ensures that data is consistent between the master and its replicas, which is essential for redundancy, fault tolerance, and high data availability.
+
+Single Point of Failure (SPOF):
+In our three-server web infrastructure, there is a potential single point of failure (SPOF) in the load balancer. If the load balancer were to experience a malfunction or downtime, it would disrupt the traffic distribution to the web servers and application server. To mitigate this risk, we would need to consider implementing redundancy for the load balancer by adding a secondary load balancer that can take over in case of a failure. This would enhance the availability and reliability of our infrastructure.
+
+Security Issues (No Firewall, No HTTPS):
+Our current infrastructure lacks a dedicated firewall. Without a firewall in place, the servers are potentially vulnerable to unauthorized access and security breaches. Additionally, we are not using HTTPS to encrypt the data transmission between the clients and our servers. This leaves sensitive data exposed to eavesdropping and interception. To address these security issues, we should implement a firewall to control incoming and outgoing traffic, and enable HTTPS to encrypt data in transit. These measures would enhance the overall security posture of our infrastructure.
+
+No Monitoring:
+Another critical concern is the absence of a monitoring system. Without proper monitoring, we would not have real-time visibility into the performance and health of our servers, load balancer, and database. This lack of monitoring makes it difficult to proactively identify and address issues such as resource exhaustion, performance bottlenecks, or security incidents. To resolve this issue, we should implement monitoring tools that provide insights into system health, performance metrics, and security events. Monitoring helps in identifying and resolving issues promptly, improving the reliability and overall management of our infrastructure.
