@@ -1,0 +1,99 @@
+This is a diagram representing a three server web infrastructure that hosts the website:
+It is secured, serves encrypted traffic, and is monitored.
+
+
+
+What are firewalls for:
+A firewall is a vital component of computer security that controls the flow of network data to protect a machine or network from potential threats and ensure safe and compliant use of the internet and networks. It examines data packets circulating on the network and determines which packets can pass and which ones should be blocked based on criteria such as source and destination IP addresses, port, protocol, and more. It monitors both incoming traffic (going to the machine from the outside) and outgoing traffic (originating from the machine and heading outward). This safeguards the machine or network by preventing unauthorized connections from the outside and restricting undesirable outgoing traffic.
+
+
+
+
+Why is the traffic served over HTTPS:
+Using the HTTPS protocol provides data security, communication privacy, website authenticity, protection against 'man-in-the-middle' attacks, and compliance with security standards. The use of HTTPS has become essential to ensure a secure online experience for users.
+
+What monitoring is used for:
+Infrastructure Monitoring is used to collect health and performance data from servers, virtual machines, containers, databases, and other backend components in a tech stack. Engineers can use an infrastructure monitoring tool to visualize, analyze, and alert on metrics and understand whether a backend issue is impacting users.
+
+
+How the monitoring tool is collecting data:
+It tracks the availability, performance, and resource utilization of hosts, containers, and other backend components. Engineers typically install software, called an agent, on their hosts. i.e physical servers, or virtual machines which use the resources of a physical server. The agent collects infrastructure metrics from hosts and sends the data to a monitoring platform for analysis and visualization. Infrastructure monitoring provides visibility into the health of backend components that run the applications, ensuring that critical services are available for users and that they work as expected.
+Infrastructure monitoring provides visibility across multiple layers of the tech stack, including the hardware, the operating System(OS), and the application server. The hardware layer includes the physical components, such as memory chips and the processor, that your backend components use to function.
+
+
+
+You must be able to explain what the issues are with this infrastructure:
+Why terminating SSL at the load balancer level is an issue?
+The drawback of this approach is that the traffic between the load balancer and the web servers is transmitted in clear, meaning without encryption. This implies that if someone manages to access or intercept the traffic between the load balancer and the web servers, they could potentially view sensitive data exchanged between these servers. This exposes the data to a security risk, particularly if this part of the network is not properly secured.
+
+Why having only one MySQL server capable of accepting writes is an issue?
+Single Point of Failure (SPOF):
+When there's only one MySQL server that can accept write operations, it becomes a single point of failure. If this server experiences hardware failures, software issues, or any form of downtime, it can disrupt write operations, leading to data unavailability and service interruptions.
+
+Lack of Redundancy:
+Redundancy is crucial for high availability and fault tolerance. In a single-write server setup, there is no redundancy, which means there's no backup system to take over in case of server failure. This lack of redundancy can result in data loss and extended downtime.
+
+Scalability Challenges:
+Scaling a single-write server setup can be challenging. As your application grows and demands more write operations, a single server may not be able to handle the increased load. This can lead to performance bottlenecks and degrade the overall user experience.
+
+Limited Backup Options:
+Backing up data is a critical part of data management. In a single-write server setup, taking backups becomes more complex, and there is a risk of data loss during the backup process. Redundant systems provide better backup options and data consistency.
+
+High Risk of Data Corruption:
+If a single-write server encounters issues like data corruption or accidental data deletions, there may be limited options for recovering lost data. A multi-server setup with replication or clustering can provide better data recovery mechanisms.
+
+High Pressure on Maintenance:
+Performing routine maintenance tasks, such as software updates, patches, or database optimizations, can be more challenging with a single-write server. These tasks often require downtime, which can disrupt write operations.
+
+Why having servers with all the same components (database, web server and application server) might be a problem?
+Lack of Specialization:
+Servers with identical components might not be optimized for their specific roles. Each type of server (database, web server, application server) has unique resource and configuration requirements. Using the same configuration for all of them can result in inefficient resource allocation.
+
+Wasted Resources:
+Some components may require more resources (CPU, memory, storage) than others. When you use identical configurations, you might over-provision resources for certain servers while under-provisioning them for others. This can lead to wasted resources and increased infrastructure costs.
+
+Scalability Challenges:
+Different components of a web application may need to be scaled independently. With identical servers, it's challenging to scale individual components to meet specific demands. This can lead to performance bottlenecks and limit your ability to handle increased traffic.
+
+Security Risks:
+Security requirements vary for different components. For example, the database server should have strict access controls, while the web server might need to serve content to the public. A one-size-fits-all approach can lead to security vulnerabilities or excessive restrictions.
+
+Maintenance Complexity:
+When all servers have the same components, maintenance and updates become more complex. You may need to apply the same updates to all servers, even if some components don't require those updates. This can be time-consuming and prone to errors.
+
+Resource Contentions:
+Identical servers can lead to resource contentions, where different components compete for the same resources. For example, if the web server and database server are on the same machine, they may contend for CPU and memory resources, affecting performance.
+
+Limited Fault Tolerance:
+In the case of hardware failures or software issues, having identical components on all servers can result in widespread outages. A more fault-tolerant architecture would involve diversifying server roles to ensure that failures in one component don't affect the entire system.
+
+How to monitor my web server QPS?
+Select a Monitoring Tool:
+Choose a monitoring tool that can collect and analyze data related to your web server's performance, including QPS. There are various monitoring tools available, both open-source and commercial, such as Prometheus, Grafana, Nagios, Zabbix, and many others. Select a tool that best suits your requirements.
+
+Instrument Your Web Server:
+To monitor QPS, you need to instrument your web server. This typically involves installing an agent or exporter that integrates with your chosen monitoring tool. The agent collects data from your web server and sends it to the monitoring tool for analysis.
+
+Configure Metrics:
+Configure the monitoring tool to collect and report the specific metrics related to QPS. This may involve setting up custom queries or scripts to retrieve this data from your web server.
+
+Set Up Alerts:
+Define thresholds for acceptable QPS levels and configure alerts to notify you when these thresholds are exceeded. Alerts can be sent through email, SMS, or integrated with messaging platforms like Slack.
+
+Visualization:
+Create dashboards or visualizations in your monitoring tool to display QPS metrics in a clear and understandable format. Visualization helps you quickly identify trends and anomalies.
+
+Historical Data:
+Collect and store historical QPS data. This data can help you analyze long-term trends and performance changes over time.
+
+Analyze and Optimize:
+Regularly review the QPS data and use it to identify performance issues or spikes in traffic. This data can be valuable for optimizing your web server's configuration and infrastructure.
+
+Capacity Planning:
+By monitoring QPS, you can anticipate increased traffic and plan for capacity scaling when needed, ensuring your web server can handle spikes in demand.
+
+Security:
+Be mindful of the data you're collecting and ensure it's stored and transmitted securely. Monitoring data can contain sensitive information, so take necessary security precautions.
+
+Compliance:
+Depending on your industry, you may need to adhere to specific compliance standards. Ensure that your monitoring practices align with these requirements.
