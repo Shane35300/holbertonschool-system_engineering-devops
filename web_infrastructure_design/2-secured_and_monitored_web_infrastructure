@@ -1,7 +1,7 @@
 This is a diagram representing a three server web infrastructure that hosts the website:
 It is secured, serves encrypted traffic, and is monitored.
 
-
+https://github.com/Shane35300/holbertonschool-system_engineering-devops/blob/21a5a3c7741ddc4f2e4ded1fd2edb4ddb1c6d25f/web_infrastructure_design/diagram3.png
 
 What are firewalls for:
 A firewall is a vital component of computer security that controls the flow of network data to protect a machine or network from potential threats and ensure safe and compliant use of the internet and networks. It examines data packets circulating on the network and determines which packets can pass and which ones should be blocked based on criteria such as source and destination IP addresses, port, protocol, and more. It monitors both incoming traffic (going to the machine from the outside) and outgoing traffic (originating from the machine and heading outward). This safeguards the machine or network by preventing unauthorized connections from the outside and restricting undesirable outgoing traffic.
