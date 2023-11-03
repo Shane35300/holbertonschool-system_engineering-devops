@@ -1,5 +1,7 @@
 This is a diagram representing a four server web infrastructure that hosts the website:
 
+https://github.com/Shane35300/holbertonschool-system_engineering-devops/blob/main/web_infrastructure_design/diagram4.png
+
 High Availability (HA): In this setup, two load balancers are configured to work in tandem, so they can distribute network traffic across multiple servers or resources. Both load balancers share the incoming network traffic, and they are actively monitoring the health and availability of the backend servers.
 
 Active-Passive Configuration: In this HA configuration, one of the load balancers is in the "active" state, and the other is in the "passive" state. The active load balancer is responsible for distributing incoming traffic to the backend servers, while the passive one remains idle.
