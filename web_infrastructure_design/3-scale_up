@@ -1,0 +1,19 @@
+This is a diagram representing a four server web infrastructure that hosts the website:
+
+High Availability (HA): In this setup, two load balancers are configured to work in tandem, so they can distribute network traffic across multiple servers or resources. Both load balancers share the incoming network traffic, and they are actively monitoring the health and availability of the backend servers.
+
+Active-Passive Configuration: In this HA configuration, one of the load balancers is in the "active" state, and the other is in the "passive" state. The active load balancer is responsible for distributing incoming traffic to the backend servers, while the passive one remains idle.
+
+Monitoring and Health Checks: Both load balancers continuously monitor the health of the backend servers. They periodically send health checks, like pings or requests, to ensure the servers are responsive and operational. If a server or resource becomes unhealthy or unresponsive, both load balancers are aware of the issue.
+
+Automatic Failover: In the event that the active load balancer fails or detects a backend server failure, the passive load balancer will automatically detect this and take over as the active load balancer. This process is known as automatic failover.
+
+Traffic Redirection: Once the passive load balancer becomes active, it takes over the task of routing incoming network traffic to the remaining healthy backend servers. This ensures that the service remains available even when one of the load balancers or backend servers fails.
+
+Redundancy: This setup ensures redundancy, which means that if any one component (either a load balancer or a backend server) fails, the service can continue to operate with minimal disruption. Redundancy helps increase system availability and minimize downtime.
+
+Configuration Synchronization: Both load balancers need to have synchronized configuration settings and rules to ensure consistency in how they route traffic. Any changes made to the configuration should be automatically synchronized between the load balancers.
+
+Load Distribution: When both load balancers are operational, they share the traffic distribution equally. This helps prevent one load balancer from becoming a single point of failure.
+
+Scalability: This configuration can be easily scaled by adding more load balancers to the cluster, which can help handle increased network traffic or provide further redundancy.

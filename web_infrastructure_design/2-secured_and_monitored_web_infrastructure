@@ -46,6 +46,10 @@ High Pressure on Maintenance:
 Performing routine maintenance tasks, such as software updates, patches, or database optimizations, can be more challenging with a single-write server. These tasks often require downtime, which can disrupt write operations.
 
 Why having servers with all the same components (database, web server and application server) might be a problem?
+"Having servers with all the same components (database, web server and application server) might be a problem because their consumption will not grow the same way between each of them (we might want to have more database servers than application servers for instance)."
+"Having servers with all the same components (database, web server and application server) might be a problem because when there is maintenance performed on a server for a specific component, it will affect other components that are on it."
+
+
 Lack of Specialization:
 Servers with identical components might not be optimized for their specific roles. Each type of server (database, web server, application server) has unique resource and configuration requirements. Using the same configuration for all of them can result in inefficient resource allocation.
 
